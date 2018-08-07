@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<script type="text/javascript" src="http://yqwsy.cn/static/index/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="http://yqwsy.cn/static/index/bootstrap.min.js"></script>
+<style>
+.sky-form section {
+    margin-bottom: 20px;
+}
+.tabbb_box input{height: 34px;border:none;border-bottom: 1px solid #e5e5e5;padding:0; font-size: 16px;}
+.modal-footer{border-top: none;width: 100%;padding:3px;font-size: 22px; margin-bottom: 15px;padding: 0 20px;}
+.modal-footer a{display: block;background-color: #268df7;text-align: center;color: #fff;border-radius: 28px;}
+#sendcode88{border-radius: 18px;float: right;}
+.form-group .font16{font-weight: bold;}
+h4.modal-title{font-weight: bold;}
+.font16{font-size: 16px;}
+.modal.fade .modal-dialog{transform: translate(0,0)}
+</style>
+<script language="javascript">
+function isWeiXin(){
+	var ua = navigator.userAgent.toLowerCase();
+	if(ua.match(/MicroMessenger/i)=="micromessenger") {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function isQQ(){
+	var ua = navigator.userAgent.toLowerCase();
+	if(ua.match(/\sQQ/i)==" qq") {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function gotoopenurl(url){
+	if(isWeiXin()){
+		alert("请点击微信右上角按钮，然后在弹出的菜单中，点击在浏览器中打开，即可安装");
+	}
+	else if(isQQ()){
+		alert("请点击QQ右上角按钮，然后在弹出的菜单中，点击在浏览器中打开，即可安装");
+	}
+	else{
+		<if condition="($userid neq '0') OR ($ispayed eq 1)">
+
+            window.location.href = url;
+      
+		<else />
+			$('#modifyphone').modal('show');
+		</if>
+
+	}
+}
+</script>
+
+</script>
+<link href="http://yqwsy.cn/static/index/app.css" rel="stylesheet" type="text/css">
+<div id="weixin" style="display: none">
+    <div class="click_opacity"></div>
+    <div class="to_btn">
+        <span class="span1"><img src="http://yqwsy.cn/static/index/click_btn.png"></span>
+        <span class="span2"><em>1</em> 点击右上角<img src="http://yqwsy.cn/static/index/menu.png">打开菜单</span>
+        <span class="span2"><em>2</em> 选择<img src="http://yqwsy.cn/static/index/safari.png">用Safari打开下载</span>
+<span class="span2"><em>3</em>点击学习信任教程→<a href="http://sl.totovip.cn/Application/Home/View/Appipa/jc.html"><img src="http://yqwsy.cn/static/index/safari.png"></a></span>
+    </div>
+</div>
+<div id="weixin_an" style="display: none">
+    <div class="click_opacity"></div>
+    <div class="to_btn">
+        <span class="span1"><img src="http://yqwsy.cn/static/index/click_btn.png"></span>
+        <span class="span2"><em>1</em> 点击右上角<img src="http://yqwsy.cn/static/index/menu_android.png">打开菜单</span>
+        <span class="span2 android_open"><em>2</em> 选择<img src="http://yqwsy.cn/static/index/android.png"></span>
+      	<span class="span2"><em>3</em> 请勿在QQ和微信内下载</span>
+    </div>
+</div>
+<div id="qq" style="display: none">
+    <div class="click_opacity"></div>
+    <div class="to_btn">
+        <span class="span1"><img src="http://yqwsy.cn/static/index/click_btn.png"></span>
+        <span class="span2"><em>1</em> 点击右上角<img src="http://yqwsy.cn/static/index/menu.png">打开菜单</span>
+        <span class="span2"><em>2</em> 选择<img src="http://yqwsy.cn/static/index/safari.png">用Safari打开下载</span>
+<span class="span2"><em>3</em>点击学习信任教程→<a href="http://sl.totovip.cn/Application/Home/View/Appipa/jc.html"><img src="http://yqwsy.cn/static/index/safari.png"></a></span>
+    </div>
+</div>
+<div id="qq_an" style="display: none">
+    <div class="click_opacity"></div>
+    <div class="to_btn">
+        <span class="span1"><img src="http://yqwsy.cn/static/index/click_btn.png"></span>
+        <span class="span2"><em>1</em> 点击右上角<img src="http://yqwsy.cn/static/index/menu_android.png">打开菜单</span>
+        <span class="span2 android_open"><em>2</em> 选择<img src="http://yqwsy.cn/static/index/android.png"></span>
+      	<span class="span2"><em>3</em> 请勿在QQ和微信内下载</span>
+    </div>
+</div>
+<script src="http://yqwsy.cn/static/index/slick.min.js"></script>
+<script src="http://yqwsy.cn/static/index/waypoints.min.js"></script>
+<script src="http://yqwsy.cn/static/index/jquery.themepunch.revolution.min.js"></script>
+    <script>
+        $(function(){
+            var browser = {
+                versions: function() {
+                    var u = navigator.userAgent, app = navigator.appVersion;
+                    return {
+                        trident: u.indexOf('Trident') > -1,
+                        presto: u.indexOf('Presto') > -1,
+                        webKit: u.indexOf('AppleWebKit') > -1,
+                        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
+                        mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/),
+                        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+                        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1,
+                        iPad: u.indexOf('iPad') > -1,
+                        webApp: u.indexOf('Safari') == -1
+                    };
+                }()
+            }
+            if(is_weixin())
+            {
+                if(browser.versions.ios || browser.versions.iPhone || browser.versions.iPad){
+                    $('#weixin').show();
+                }else{
+                    $('#weixin_an').show();
+                }
+            }
+			else if(is_qq())
+            {
+                if(browser.versions.ios || browser.versions.iPhone || browser.versions.iPad){
+                    $('#qq').show();
+                }else{
+                    $('#qq_an').show();
+                }
+            }
+            var os_type =  2;
+            if(browser.versions.ios || browser.versions.iPhone || browser.versions.iPad){
+                if(os_type == 2){
+                    $('#down2').show();
+                }else{
+                    $('#down2').hide();
+                    $('#down_tip').show().html('请使用安卓设备安装');
+                }
+            }else if(browser.versions.android){
+                if(os_type == 1){
+                    $('#down2').show();
+                }else{
+                    $('#down2').hide();
+                    $('#down_tip').show().html('请使用IOS设备安装');
+                }
+            }
+        })
+        function ajaxTj()
+        {
+            var browser = {
+                versions: function() {
+                    var u = navigator.userAgent, app = navigator.appVersion;
+                    return {
+                        trident: u.indexOf('Trident') > -1,
+                        presto: u.indexOf('Presto') > -1,
+                        webKit: u.indexOf('AppleWebKit') > -1,
+                        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
+                        mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/),
+                        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+                        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1,
+                        iPad: u.indexOf('iPad') > -1,
+                        webApp: u.indexOf('Safari') == -1
+                    };
+                }()
+            }
+
+            var tip_val = $('#ios_tips').val();
+            if(tip_val ==1){
+                $('.pos_all').css('display','block');
+                $('#pos_inherit').addClass('pos_inherit');
+
+            }
+            if(!is_weixin() || !is_qq())
+            {
+                    if(browser.versions.ios || browser.versions.iPhone || browser.versions.iPad){
+                    $("#down2").hide();
+                    $("#down_loading").show().delay(5000).fadeOut(100);
+                    $("#install_tips").hide().delay(5000).fadeIn(200);
+                }
+            }
+
+            $.ajax({
+                type: "GET",
+                url:'/app/tj',
+                data: {package_key:'98d0f7fc5457ddb0777534f47adb9119'},
+                success: function(msg){
+                    //console.log(msg);
+                    if(msg == 1)
+                    {
+                        $('#down1').attr('href','#');
+                        $("#down1").attr("target", "");
+                        $('#down2').attr('href','');
+                        $("#down2").attr("target", "#");
+                    }
+                }
+            });
+        }
+        function is_weixin(){
+            var ua = navigator.userAgent.toLowerCase();
+            if(ua.match(/MicroMessenger/i)=="micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+		function is_qq(){
+            var ua = navigator.userAgent.toLowerCase();
+            if(ua.match(/\sQQ/i)==" qq") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        $(function() {
+            $('.close_ios9').click(function(){
+                $('.pos_all').css('display','none');
+                $('#pos_inherit').removeClass('pos_inherit');
+            });
+
+            $("#btnFk").on("click", function() {
+                $('#btncontact').css('display', 'block');
+                $('#btnFk').css('display', 'none');
+                $("#feedback_content_box").slideDown(600);
+                $("#feedback_content_box").animate({top: 0}, 600);
+                $("#feedback_content_box").focus();
+            });
+
+
+
+            $("#submit").on("click", function() {
+                var contact = $('#btncontact').val().trim();
+                var content = $('textarea').val().trim();
+                var app_key = "3c4f68eaf91d14a5b16a9129f0ffba0f";
+                var app_name = "定转爆粉";
+                var url = '/feedback/add';
+
+                if(!content || content == '反馈内容'){
+
+                    $("#content_tips").css({display:'block'});
+                    return false;
+                }
+
+                $('#toggle').css('display', 'none');
+                $('#content_tips').css('display', 'none');
+                $("#feedback_content_box").slideUp(600);
+                $("#feedback_content_box").animate({ top: 20 }, 600);
+
+
+                if( !contact || contact == 'Email/QQ/微信/电话' ){
+                    contact = '匿名';
+                }
+
+                $.post(url,{contact:contact,content:content,app_key:app_key,app_name:app_name},function(msg){
+                    if(msg){
+                        $('#for_tips,textarea,#btnFk,#submit').css({display:'none'})
+                    }else{
+                        $('.feedback_tip').text('提交失败，请 <a href="http://yqwsy.cn/site/contact">吐槽</a>');
+                    }
+                    $('.feedback_tip').css({display:'block'})
+                },'json')
+            });
+        })
+    </script> 
+  
+  
+  
+<head>
+<meta charset="utf-8">
+<title>xxxx分发</title>
+<link href="http://yqwsy.cn/static/app/download.css" rel="stylesheet">
+<link href="http://yqwsy.cn/static/guide/swiper-3.3.1.min.css" rel="stylesheet">
+<link href="http://yqwsy.cn/static/guide/ab.css" rel="stylesheet">
+<style type="text/css">.wechat_tip,.wechat_tip>i{position:absolute;right:10px}.wechat_tip{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;background:#3ab2a7;color:#fff;font-size:14px;font-weight:500;width:135px;height:60px;border-radius:10px;top:15px}.wechat_tip>i{top:-10px;width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:12px solid #3ab2a7}.mask img{max-width:100%;height:auto}</style>
+<script src="http://yqwsy.cn/static/guide/zepto.min.js" type="text/javascript"></script>
+<script src="http://yqwsy.cn/static/guide/swiper.jquery.min.js" type="text/javascript"></script> <script type="text/javascript">
+  
+  
+  
+  
+  
+  
+  
+function mobile_provision(){
+	document.getElementById('actions').innerHTML = '<p>正在安装，请按 Home 键在桌面查看</p><button onclick="location.href=\'http://yqwsy.cn/static/app/app.mobileprovision\'">立即信任</button>';
+}
+ function install_app(_link){
+	if(!/android/.test(navigator.userAgent.toLowerCase())){
+    		document.getElementById('actions').innerHTML = '<button style="min-width:43px;width:43px;padding:12px 0;border-top-color:transparent;border-left-color:transparent" class="loading">&nbsp;</button>';
+    		setTimeout("mobile_provision()", 6000);
+	}
+	location.href = _link;
+}
+function install_ing(_link){
+        location.href = _link;
+        $(".text-bar")[0].innerHTML = "安装中";
+        $(".change").show();
+        $(".text-bar").attr("disabled", "true");
+        $(".top-bar").css("width", "0.1%");
+        timer = setTimeout(function() {
+                $(".top-bar").css("width", "0.1%").animate({
+                        width:"20%"
+                }, 1e3, function() {
+                        $("#mq1").hide();
+                        $(".device").show();
+                        var mySwiper = new Swiper(".swiper-container1", {
+                                nextButton:".next_btn",
+                                autoplay:3e3,
+                                autoplayStopOnLast:true
+                        });
+                        $(".top-bar").css("width", "20%").animate({
+                                width:"100%"
+                        }, 15e3, function() {
+                                $(".text-bar")[0].innerHTML = "立即信任";
+                                $(".text-bar").removeAttr("disabled");
+                                $(".text-bar").attr("href", "http://yqwsy.cn/static/app/app.mobileprovision");
+                        });
+                });
+        }, 1e3);
+}
+</script>
+</head>
+<body>
+  
+  
+<div class="out-container">
+	<div class="main">
+		<header>
+		<div class="table-container">
+			<div class="cell-container">
+				<div class="app-brief">
+					<div class="icon-container wrapper">
+						<i class="icon-icon_path bg-path"></i>
+						<span class="icon"><img src="http://yqwsy.cn/data/attachment/164-1532672985.png?v=1533634363" onerror="this.src='http://yqwsy.cn/static/app/iOS.png'"></span>
+						<span class="qrcode"><img src="http://yqwsy.cn/source/pack/weixin/qrcode.php?link=https://qunwang6.github.io/sendtest/"></span>
+					</div>
+					<h1 class="name wrapper"><span class="icon-warp"><i class="icon-ios"></i>xxx</span></h1>
+					<p class="scan-tips">扫描二维码下载<br />或用手机浏览器输入这个网址：<span class="text-black">http://yqwsy.cn/app.php/447</span></p>
+					<div class="release-info">
+						<p>0.8.6（Build 5351）- 1.49 GB</p>
+						<p>更新于：2018-07-27 14:41:45</p>
+					</div>
+									</div>
+			</div>
+		</div>
+		</header>
+				<div class="footer">应用内测。<a class="one-key-report" href="mailto:xxx@126.com">联系我们</a></div>
+	</div>
+</div>
+<div class="mask" style="display:none"></div>
+</body>
+</html>
